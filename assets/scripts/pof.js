@@ -10,9 +10,9 @@ let table = {
     "AQo" :  192.67022,
     "99" : 191.41393,
     "AJs" :183.22134,
-    "88" :159.29689,
+    "88" : 159.29689,
     "ATs" : 138.91308,
-    "AJo" :136.31047  ,
+    "AJo" :136.31047,
     "77" : 134.84771,
     "66" : 115.34853,
     "ATo" :  106.26471,
@@ -24,7 +24,7 @@ let table = {
     "A9o" :  81.7172,
     "A7s" : 79.17591,
     "KJs" : 72.62126,
-    "A5s" :72.29213,
+    "A5s" : 72.29213,
     "A8o" :  70.95651,
     "A6s" : 70.74453,
     "A4s" : 66.65053,
@@ -79,7 +79,7 @@ let table = {
     "Q3s" : 17.73401,
     "T8s" : 17.46571,
     "J7s" : 17.19452,
-    "Q7o" :17.07734 ,
+    "Q7o" : 17.07734 ,
     "Q2s" : 16.64103,
     "Q6o" : 16.29514,
     "98s" : 15.29334,
@@ -96,7 +96,7 @@ let table = {
     "97s" : 12.25142,
     "T8o" : 12.15698,
     "J3s" : 12.04034,
-    "T6s" :11.92109,
+    "T6s" : 11.92109,
     "Q2o" : 11.30295,
     "J2s" : 11.13873,
     "87s" : 11.11055,
@@ -170,17 +170,20 @@ let table = {
     "32o" : 1.8253
     }
 
-let playerHand = prompt("What's your hand? Ex: AA, T9o, KJs")
-let handValue = (table[playerHand])
-const gg = (handValue / 2)
-let display = Math.round(gg)
+    const playerHand = (input) => {
+        input = prompt("What's your hand? Ex: AA, T9o, KJs, 72o");
+        let handValue = (table[input])
+        let gg = (handValue / 2)
+        let display = Math.round(gg)
+        if (display > 1) {
+            alert("If you have less than " + display + "BB you should PUSH !")
+        } else {
+            alert("Please respect format, strongest card first. Ex: AA, T9o, KJs, 72o")
+        }
+    }
+    
+    
 
-const pofWizard = x => {
-    if (display > 1) {
-alert("If you have less than " + display + "BB PUSH !")
-} else {
-alert("You're forced to push.")
-}
-}
+document.getElementById("letsGo").addEventListener("click", playerHand);
 
-pofWizard(display);
+// pofWizard(display);
